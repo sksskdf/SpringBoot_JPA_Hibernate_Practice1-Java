@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @Entity
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Builder
 @AllArgsConstructor
 public class Staff {
@@ -18,7 +18,10 @@ public class Staff {
     private String name;
     private Integer age;
 
-    /*@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "store_id")
+    /*@Column(name = "store_id")
+    private Long storeId;*/
+
+    /*@ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "store_id" , foreignKey = @ForeignKey(name = "fk1"))
     private Store store;*/
 }

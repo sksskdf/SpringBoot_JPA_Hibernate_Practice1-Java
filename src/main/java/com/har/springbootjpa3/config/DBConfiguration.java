@@ -1,5 +1,7 @@
 package com.har.springbootjpa3.config;
 
+import com.querydsl.jpa.impl.JPAQueryFactory;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.persistence.EntityManager;
@@ -11,4 +13,8 @@ public class DBConfiguration {
     @PersistenceContext
     private EntityManager entityManager;
 
+    @Bean
+    public JPAQueryFactory jpaQueryFactory(){
+        return new JPAQueryFactory(entityManager);
+    }
 }

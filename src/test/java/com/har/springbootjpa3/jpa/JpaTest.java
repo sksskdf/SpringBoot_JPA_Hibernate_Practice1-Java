@@ -5,6 +5,7 @@ import com.har.springbootjpa3.entity.Store;
 import com.har.springbootjpa3.repository.StaffRepository;
 import com.har.springbootjpa3.repository.StoreRepository;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,9 +15,6 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Optional;
 
 @ActiveProfiles("local")
 @ExtendWith(SpringExtension.class)
@@ -66,7 +64,7 @@ public class JpaTest {
                 .age(25)
                 .build();
         Store store = Store.builder()
-                .id(2L)
+                .id(1L)
                 .name("스토어1")
                 .address("스토어주소")
                 .staff(Arrays.asList(staff))
