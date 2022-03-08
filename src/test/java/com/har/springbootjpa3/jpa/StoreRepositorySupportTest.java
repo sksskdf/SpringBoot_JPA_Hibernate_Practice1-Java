@@ -93,4 +93,14 @@ public class StoreRepositorySupportTest {
         assertThat(staffs.get(0).getName()).isEqualTo(staffName1);
         assertThat(staffs.get(1).getName()).isEqualTo(staffName2);
     }
+
+    @Test
+    void querydsl_Mysql내부함수_call(){
+        //g
+        final String name = "스토어1";
+        //w
+        Store store = storeRepositorySupport.findByName(name);
+        //t
+        assertThat(store.getName()).isEqualTo("TEST_" + name);
+    }
 }

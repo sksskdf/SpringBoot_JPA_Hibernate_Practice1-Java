@@ -12,13 +12,13 @@ spring:
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database-platform: com.har.springbootjpa3.config.MysqlCustomDialect
     database: mysql
     generate-ddl: false
     open-in-view: false
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         show_sql: true

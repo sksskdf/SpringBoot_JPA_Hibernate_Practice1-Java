@@ -3,6 +3,7 @@ package com.har.springbootjpa3.repository.support;
 import com.har.springbootjpa3.entity.Staff;
 import com.har.springbootjpa3.entity.Store;
 import com.querydsl.core.types.Projections;
+import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Repository;
@@ -53,4 +54,18 @@ public class StoreRepositorySupport extends QuerydslRepositorySupport {
                 .where(store.name.eq(name))
                 .fetch();
     }*/
+
+    public Store findByName(String name){
+        return jpaQueryFactory
+                .select(Projections.fields(Store.class,
+                        store.id
+                , Expressions.stringTemplate("createPrefix({0})", store.name).as("name")
+                        , store.address
+                        ))
+                .from(store)
+                .where(store.name.eq(name))
+                .limit(1L)
+                .fetchOne();
+
+    }
 }
